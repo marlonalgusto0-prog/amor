@@ -1,0 +1,116 @@
+:root {
+    --pink-light: #fff5f7;
+    --pink-medium: #ffdae5;
+    --pink-dark: #d6336c;
+    --pink-vibrant: #ff4d8d;
+    --gradient: linear-gradient(90deg, #ff4d8d, #e91e63);
+}
+
+body {
+    background-color: var(--pink-light);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    color: var(--pink-dark);
+}
+
+.container {
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+h1 { font-size: 2.2rem; margin: 10px 0 5px; color: #c2185b; }
+.subtitle { margin: 0 0 30px; font-size: 0.9rem; opacity: 0.7; }
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+input[type="date"], textarea {
+    width: 100%;
+    border: 1px solid var(--pink-medium);
+    border-radius: 12px;
+    padding: 12px;
+    box-sizing: border-box;
+    color: #555;
+    outline: none;
+}
+
+/* Estilo do Carrossel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fffafa;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#displayImg {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.nav-btn {
+    background: white;
+    border: 1px solid var(--pink-medium);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: var(--pink-vibrant);
+}
+
+.upload-group {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-sm {
+    flex: 1;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.btn-main {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 18px;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+    margin-top: 10px;
+}
+
+.hidden { display: none; }
+.info-footer { font-size: 0.7rem; margin-top: 12px; }
+.signature { font-size: 0.8rem; margin-top: 25px; opacity: 0.6; }
