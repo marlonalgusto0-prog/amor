@@ -3,208 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosso Amor - Personalizado</title>
-    <style>
-        :root {
-            --pink-bg: #ffeef2;
-            --pink-card: #ffffff;
-            --pink-accent: #ff4d8d;
-            --text-color: #d6336c;
-            --gradient: linear-gradient(90deg, #ff4d8d, #e91e63);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--pink-bg);
-            color: var(--text-color);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        h1 { font-size: 2.5rem; margin-bottom: 5px; }
-        p.subtitle { margin-top: 0; font-style: italic; opacity: 0.8; }
-
-        .card {
-            background: white;
-            border-radius: 25px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        h2 { font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
-
-        input, textarea, select {
-            width: 90%;
-            padding: 12px;
-            border: 2px solid #ffdae5;
-            border-radius: 15px;
-            outline: none;
-            color: #555;
-        }
-
-        /* Estilo do Carrossel */
-        .carousel-container {
-            position: relative;
-            background: #fff0f5;
-            border-radius: 15px;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-
-        .carousel-img {
-            max-width: 100%;
-            max-height: 100%;
-            display: none;
-        }
-        .carousel-img.active { display: block; }
-
-        .nav-btn {
-            position: absolute;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            color: var(--pink-accent);
-        }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-
-        .upload-btns {
-            display: flex;
-            justify-content: space-between;
-            gap: 5px;
-        }
-
-        .btn-upload {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            padding: 10px 5px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            flex: 1;
-            cursor: pointer;
-        }
-
-        .btn-generate {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 18px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
-        }
-
-        .footer-text { font-size: 0.8rem; margin-top: 15px; opacity: 0.7; }
-        
-        input[type="file"] { display: none; }
-    </style>
+    <title>Nosso Amor - Site Personalizado</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>Nosso Amor</h1>
-    <p class="subtitle">Cada dia ao seu lado é especial</p>
-
-    <div class="card">
-        <h2>📅 Data do Início do Nosso Amor</h2>
-        <input type="date" id="dataInicio">
+    <div class="header">
+        <div class="hearts">💕</div>
+        <h1>Nosso Amor</h1>
+        <p class="subtitle">Cada dia ao seu lado é especial</p>
     </div>
 
     <div class="card">
-        <h2>📸 Nossas Memórias</h2>
-        <div class="carousel-container">
-            <button class="nav-btn prev" onclick="changeSlide(-1)">&#10094;</button>
-            <div id="display">
-                <img id="img1" class="carousel-img active" src="https://via.placeholder.com/150?text=Foto+1" alt="Foto 1">
-                <img id="img2" class="carousel-img" src="https://via.placeholder.com/150?text=Foto+2" alt="Foto 2">
-                <img id="img3" class="carousel-img" src="https://via.placeholder.com/150?text=Foto+3" alt="Foto 3">
+        <div class="card-title">
+            <span>📅</span> Data do Início do Nosso Amor
+        </div>
+        <div class="input-container">
+            <input type="date" id="dataInicio">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">
+            <span>📸</span> Nossas Memórias
+        </div>
+        <div class="carousel">
+            <button class="nav-btn prev" id="prevBtn">❮</button>
+            <div class="carousel-view">
+                <img id="displayImg" src="https://via.placeholder.com/300x200?text=Sua+Foto+Aqui" alt="Memória">
+                <p id="fotoLegenda">Foto 1</p>
             </div>
-            <button class="nav-btn next" onclick="changeSlide(1)">&#10095;</button>
+            <button class="nav-btn next" id="nextBtn">❯</button>
         </div>
         
-        <div class="upload-btns">
-            <button class="btn-upload" onclick="triggerInput(1)">+ Foto 1</button>
-            <button class="btn-upload" onclick="triggerInput(2)">+ Foto 2</button>
-            <button class="btn-upload" onclick="triggerInput(3)">+ Foto 3</button>
+        <div class="upload-group">
+            <button class="btn-sm" onclick="triggerInput(0)">+ Foto 1</button>
+            <button class="btn-sm" onclick="triggerInput(1)">+ Foto 2</button>
+            <button class="btn-sm" onclick="triggerInput(2)">+ Foto 3</button>
         </div>
-        <input type="file" id="file1" accept="image/*" onchange="previewImg(event, 1)">
-        <input type="file" id="file2" accept="image/*" onchange="previewImg(event, 2)">
-        <input type="file" id="file3" accept="image/*" onchange="previewImg(event, 3)">
+        
+        <input type="file" id="file0" class="hidden" accept="image/*">
+        <input type="file" id="file1" class="hidden" accept="image/*">
+        <input type="file" id="file2" class="hidden" accept="image/*">
     </div>
 
     <div class="card">
-        <h2>💌 Mensagem Especial</h2>
-        <textarea id="mensagem" rows="4" placeholder="Escreva uma mensagem de amor..."></textarea>
+        <div class="card-title">
+            <span>💌</span> Mensagem Especial
+        </div>
+        <textarea id="mensagem" placeholder="Escreva uma mensagem de amor..."></textarea>
     </div>
 
-    <button class="btn-generate" onclick="gerarLink()">✨ Gerar Link para Compartilhar ✨</button>
-    <p style="font-size: 0.7rem; color: #e91e63; margin-top: 10px;">O link conterá todas as suas personalizações!</p>
-
-    <div class="footer-text">Feito com 💕 para celebrar o amor</div>
+    <button class="btn-main" id="btnGerar">
+        ✨ Gerar Link para Compartilhar ✨
+    </button>
+    
+    <p class="info-footer">O link conterá todas as suas personalizações!</p>
+    <p class="signature">Feito com 💕 para celebrar o amor</p>
 </div>
 
-<script>
-    let currentSlide = 0;
-    const slides = [document.getElementById('img1'), document.getElementById('img2'), document.getElementById('img3')];
-
-    function changeSlide(direction) {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + direction + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-
-    function triggerInput(num) {
-        document.getElementById('file' + num).click();
-    }
-
-    function previewImg(event, num) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            const imgElement = document.getElementById('img' + num);
-            imgElement.src = reader.result;
-            // Focar na imagem que acabou de ser enviada
-            slides.forEach(s => s.classList.remove('active'));
-            imgElement.classList.add('active');
-            currentSlide = num - 1;
-        }
-        reader.readAsDataURL(event.target.files[0]);
-    }
-
-    function gerarLink() {
-        const data = document.getElementById('dataInicio').value;
-        const msg = encodeURIComponent(document.getElementById('mensagem').value);
-        
-        if(!data || !msg) {
-            alert("Por favor, preencha a data e a mensagem!");
-            return;
-        }
-
-        // Simulação de geração de link (em um sistema real, os dados seriam salvos em um banco)
-        alert("Link gerado com sucesso! (Funcionalidade de link real requer servidor/banco de dados)");
-        console.log("Dados salvos:", { data, msg });
-    }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
